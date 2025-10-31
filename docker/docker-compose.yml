@@ -1,0 +1,35 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    restart: unless-stopped
+    ports:
+      - "2003:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=America/Sao_Paulo
+
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: software-sign-api
+    ports:
+      - "1700:1700"
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - TZ=${TZ}
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo
+      - SPRING_DATASOURCE_USERNAME=${DB_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASS}
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=${DB_DDL_AUTO}
+      - CLICKSIGN_BASE_URL=${CLICKSIGN_BASE_URL}
+      - CLICKSIGN_API_KEY_SOFTWARE=${CLICKSIGN_API_KEY_SOFTWARE}
+      - CLICKSIGN_API_KEY_OTHER=${CLICKSIGN_API_KEY_OTHER}
+    restart: unless-stopped
+
+volumes:
+  jenkins_home:
