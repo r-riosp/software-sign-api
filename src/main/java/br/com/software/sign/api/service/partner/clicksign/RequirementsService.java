@@ -39,7 +39,9 @@ public class RequirementsService {
             // ---- Qualificação
             if (s.getQualification() != null && s.getQualification().isEnable()) {
                 Map<String, Object> payload =
-                        buildQualificationPayload(documentId, signerId, s.getQualification().getRole());
+                        buildQualificationPayload(documentId, signerId, 
+                                s.getQualification().getAction(), 
+                                s.getQualification().getRole());
                 call(envelopeId, "qualification", signerId, result, payload);
             }
 
@@ -92,10 +94,15 @@ public class RequirementsService {
         }
     }
 
-    // Qualificação: action = "agree" (default), role enviado em attributes.role
-    private Map<String, Object> buildQualificationPayload(String documentId, String signerId, String role) {
+    // Qualificação: action e role enviados em attributes
+    private Map<String, Object> buildQualificationPayload(String documentId, String signerId, 
+                                                          String action, String role) {
         Map<String, Object> attributes = new HashMap<>();
-        attributes.put("action", "agree");
+        if (action != null && !action.isBlank()) {
+            attributes.put("action", action);
+        } else {
+            attributes.put("action", "sign"); // default fallback
+        }
         if (role != null && !role.isBlank()) attributes.put("role", role);
         return requirementJsonApi(attributes, documentId, signerId);
     }

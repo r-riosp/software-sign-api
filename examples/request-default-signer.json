@@ -1,0 +1,27 @@
+{
+  "envelope": {
+    "name": "Documento Simples"
+  },
+  "documents": [
+    {
+      "filename": "documento.pdf",
+      "contentBase64": "JVBERi0xLjQKJeLjz9MK...",
+      "contentType": "application/pdf"
+    }
+  ],
+  "signers": [
+    {
+      "email": "assinante@example.com",
+      "name": "Assinante Principal"
+    }
+  ],
+  "requirements": {
+    "qualification": {
+      "enable": true,
+      "action": "sign",
+      "role": "party"
+    }
+  },
+  "activate": true,
+  "notifyAll": true
+}

@@ -1,0 +1,27 @@
+{
+  "envelope": {
+    "name": "Documento para Aprovação"
+  },
+  "documents": [
+    {
+      "filename": "relatorio.pdf",
+      "contentBase64": "JVBERi0xLjQKJeLjz9MK...",
+      "contentType": "application/pdf"
+    }
+  ],
+  "signers": [
+    {
+      "email": "aprovador@empresa.com",
+      "name": "Aprovador de Documentos"
+    }
+  ],
+  "requirements": {
+    "qualification": {
+      "enable": true,
+      "action": "approve",
+      "role": "party"
+    }
+  },
+  "activate": true,
+  "notifyAll": true
+}

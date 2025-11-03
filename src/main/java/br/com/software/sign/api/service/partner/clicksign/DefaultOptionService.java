@@ -11,6 +11,7 @@ public class DefaultOptionService {
     private static final boolean DEFAULT_ACTIVATE  = true;
     private static final boolean DEFAULT_NOTIFYALL = true;
     private static final String  DEFAULT_AUTH      = "email,handwritten";
+    private static final String  DEFAULT_ACTION    = "sign";
     private static final String  DEFAULT_ROLE      = "party";
     private static final String  DEFAULT_RUB_PAGES = "all";
 
@@ -24,6 +25,10 @@ public class DefaultOptionService {
 
     public String getAuth(String auth) {
         return (auth != null && !auth.isBlank()) ? auth : DEFAULT_AUTH;
+    }
+
+    public String getAction(String action) {
+        return (action != null && !action.isBlank()) ? action : DEFAULT_ACTION;
     }
 
     public String getRole(String role) {
