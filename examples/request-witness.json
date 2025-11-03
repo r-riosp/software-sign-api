@@ -1,24 +1,24 @@
 {
   "envelope": {
-    "name": "Documento Simples"
+    "name": "Documento com Testemunha"
   },
   "documents": [
     {
-      "filename": "documento.pdf",
+      "filename": "contrato.pdf",
       "contentBase64": "JVBERi0xLjQKJeLjz9MK...",
       "contentType": "application/pdf"
     }
   ],
   "signers": [
     {
-      "email": "assinante@example.com",
-      "name": "Assinante Principal"
+      "email": "testemunha@example.com",
+      "name": "Testemunha Legal"
     }
   ],
   "requirements": {
     "qualification": {
       "enable": true,
-      "action": "sign",
+      "action": "witness",
       "role": "party"
     }
   },

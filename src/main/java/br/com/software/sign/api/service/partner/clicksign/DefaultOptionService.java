@@ -11,9 +11,9 @@ public class DefaultOptionService {
     private static final boolean DEFAULT_ACTIVATE  = true;
     private static final boolean DEFAULT_NOTIFYALL = true;
     private static final String  DEFAULT_AUTH      = "email,handwritten";
+    private static final String  DEFAULT_ACTION    = "sign";
     private static final String  DEFAULT_ROLE      = "party";
     private static final String  DEFAULT_RUB_PAGES = "all";
-    private static final String  DEFAULT_SIGN_AS   = "sign";
 
     public Boolean getActivate(Boolean value) {
         return value != null ? value : DEFAULT_ACTIVATE;
@@ -27,16 +27,16 @@ public class DefaultOptionService {
         return (auth != null && !auth.isBlank()) ? auth : DEFAULT_AUTH;
     }
 
+    public String getAction(String action) {
+        return (action != null && !action.isBlank()) ? action : DEFAULT_ACTION;
+    }
+
     public String getRole(String role) {
         return (role != null && !role.isBlank()) ? role : DEFAULT_ROLE;
     }
 
     public String getRubricPages(String pages) {
         return (pages != null && !pages.isBlank()) ? pages : DEFAULT_RUB_PAGES;
-    }
-
-    public String getSignAs(String signAs) {
-        return (signAs != null && !signAs.isBlank()) ? signAs : DEFAULT_SIGN_AS;
     }
 }
 

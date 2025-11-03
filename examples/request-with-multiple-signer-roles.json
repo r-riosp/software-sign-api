@@ -12,28 +12,17 @@
   "signers": [
     {
       "email": "contratante@empresa.com",
-      "name": "João Silva",
-      "sign_as": "sign"
+      "name": "João Silva"
     },
     {
       "email": "contratado@fornecedor.com",
-      "name": "Maria Santos",
-      "sign_as": "sign"
-    },
-    {
-      "email": "testemunha@juridico.com",
-      "name": "Pedro Oliveira",
-      "sign_as": "witness"
-    },
-    {
-      "email": "aprovador@empresa.com",
-      "name": "Ana Costa",
-      "sign_as": "approve"
+      "name": "Maria Santos"
     }
   ],
   "requirements": {
     "qualification": {
       "enable": true,
+      "action": "sign",
       "role": "party"
     },
     "authentication": {

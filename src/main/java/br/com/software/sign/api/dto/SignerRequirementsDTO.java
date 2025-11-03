@@ -31,10 +31,14 @@ public class SignerRequirementsDTO {
 
     public static class QualificationDTO {
         private boolean enable = true;
+        private String action;
         private String role;
 
         public boolean isEnable() { return enable; }
         public void setEnable(boolean enable) { this.enable = enable; }
+
+        public String getAction() { return action; }
+        public void setAction(String action) { this.action = action; }
 
         public String getRole() { return role; }
         public void setRole(String role) { this.role = role; }

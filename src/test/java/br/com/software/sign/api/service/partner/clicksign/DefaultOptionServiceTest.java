@@ -8,38 +8,38 @@ class DefaultOptionServiceTest {
     private final DefaultOptionService service = new DefaultOptionService();
 
     @Test
-    void testGetSignAsWithNullReturnsDefault() {
-        String result = service.getSignAs(null);
+    void testGetActionWithNullReturnsDefault() {
+        String result = service.getAction(null);
         assertEquals("sign", result);
     }
 
     @Test
-    void testGetSignAsWithEmptyStringReturnsDefault() {
-        String result = service.getSignAs("");
+    void testGetActionWithEmptyStringReturnsDefault() {
+        String result = service.getAction("");
         assertEquals("sign", result);
     }
 
     @Test
-    void testGetSignAsWithBlankStringReturnsDefault() {
-        String result = service.getSignAs("   ");
+    void testGetActionWithBlankStringReturnsDefault() {
+        String result = service.getAction("   ");
         assertEquals("sign", result);
     }
 
     @Test
-    void testGetSignAsWithCustomValueReturnsCustomValue() {
-        String result = service.getSignAs("approve");
+    void testGetActionWithApproveReturnsApprove() {
+        String result = service.getAction("approve");
         assertEquals("approve", result);
     }
 
     @Test
-    void testGetSignAsWithWitnessReturnsWitness() {
-        String result = service.getSignAs("witness");
+    void testGetActionWithWitnessReturnsWitness() {
+        String result = service.getAction("witness");
         assertEquals("witness", result);
     }
 
     @Test
-    void testGetSignAsWithSignReturnsSign() {
-        String result = service.getSignAs("sign");
+    void testGetActionWithSignReturnsSign() {
+        String result = service.getAction("sign");
         assertEquals("sign", result);
     }
 }

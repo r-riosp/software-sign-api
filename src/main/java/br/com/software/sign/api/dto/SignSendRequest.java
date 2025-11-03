@@ -83,12 +83,16 @@ public class SignSendRequest {
 
         public static class Requirement {
             private boolean enable = true;
+            private String action; // para qualificação (sign, approve, witness)
             private String role;   // para qualificação
             private String auth;   // para autenticação (CSV: "email,handwritten")
             private String pages;  // para rubrica ("1,2,5" ou "all")
 
             public boolean isEnable() { return enable; }
             public void setEnable(boolean enable) { this.enable = enable; }
+
+            public String getAction() { return action; }
+            public void setAction(String action) { this.action = action; }
 
             public String getRole() { return role; }
             public void setRole(String role) { this.role = role; }

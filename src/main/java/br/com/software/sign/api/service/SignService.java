@@ -392,6 +392,7 @@ public class SignService {
 
         var q0 = new RequirementTemplate.Requirement();
         q0.setEnable(true);
+        q0.setAction(defaultOptionService.getAction(null)); // "sign"
         q0.setRole(defaultOptionService.getRole(null)); // "party"
         tpl0.setQualification(q0);
 
@@ -409,6 +410,7 @@ public class SignService {
         boolean templateEnabled = hasTemplateEnabled(tpl);
         if (!templateEnabled) return false;
 
+        String action  = defaultOptionService.getAction(tpl.getQualification()==null ? null : tpl.getQualification().getAction());
         String role    = defaultOptionService.getRole(tpl.getQualification()==null ? null : tpl.getQualification().getRole());
         String authCsv = defaultOptionService.getAuth(tpl.getAuthentication()==null ? null : tpl.getAuthentication().getAuth());
         String pages   = defaultOptionService.getRubricPages(tpl.getRubric()==null ? null : tpl.getRubric().getPages());
@@ -433,7 +435,9 @@ public class SignService {
                         var s = new SignerRequirementsDTO();
                         s.setSignerId(sid); s.setDocumentId(did);
                         var q = new SignerRequirementsDTO.QualificationDTO();
-                        q.setEnable(true); q.setRole(role);
+                        q.setEnable(true); 
+                        q.setAction(action);
+                        q.setRole(role);
                         s.setQualification(q);
                         items.add(s);
                     }

@@ -12,10 +12,16 @@
   "signers": [
     {
       "email": "aprovador@empresa.com",
-      "name": "Aprovador de Documentos",
-      "sign_as": "approve"
+      "name": "Aprovador de Documentos"
     }
   ],
+  "requirements": {
+    "qualification": {
+      "enable": true,
+      "action": "approve",
+      "role": "party"
+    }
+  },
   "activate": true,
   "notifyAll": true
 }
