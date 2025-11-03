@@ -1,0 +1,50 @@
+{
+  "envelope": {
+    "name": "Contrato de Prestação de Serviços - Exemplo"
+  },
+  "documents": [
+    {
+      "filename": "contrato.pdf",
+      "contentBase64": "JVBERi0xLjQKJeLjz9MK...",
+      "contentType": "application/pdf"
+    }
+  ],
+  "signers": [
+    {
+      "email": "contratante@empresa.com",
+      "name": "João Silva",
+      "sign_as": "sign"
+    },
+    {
+      "email": "contratado@fornecedor.com",
+      "name": "Maria Santos",
+      "sign_as": "sign"
+    },
+    {
+      "email": "testemunha@juridico.com",
+      "name": "Pedro Oliveira",
+      "sign_as": "witness"
+    },
+    {
+      "email": "aprovador@empresa.com",
+      "name": "Ana Costa",
+      "sign_as": "approve"
+    }
+  ],
+  "requirements": {
+    "qualification": {
+      "enable": true,
+      "role": "party"
+    },
+    "authentication": {
+      "enable": true,
+      "auth": "email,handwritten"
+    },
+    "rubric": {
+      "enable": true,
+      "pages": "all"
+    }
+  },
+  "activate": true,
+  "notifyAll": true
+}
