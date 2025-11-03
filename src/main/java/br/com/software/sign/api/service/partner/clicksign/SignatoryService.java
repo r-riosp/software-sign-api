@@ -14,11 +14,13 @@ import java.util.*;
 public class SignatoryService {
 
     private final ClickSignService clickSignService;
+    private final DefaultOptionService defaultOptionService;
     private final ObjectMapper om = new ObjectMapper();
 
 
-    public SignatoryService(ClickSignService clickSignService) {
+    public SignatoryService(ClickSignService clickSignService, DefaultOptionService defaultOptionService) {
         this.clickSignService = clickSignService;
+        this.defaultOptionService = defaultOptionService;
     }
 
     @SuppressWarnings("unchecked")
@@ -81,6 +83,12 @@ public class SignatoryService {
 
         attrs.putIfAbsent("refusable", false);
         attrs.putIfAbsent("location_required_enabled", true);
+
+        // Define sign_as default se não informado
+        if (!attrs.containsKey("sign_as")) {
+            String defaultSignAs = defaultOptionService.getSignAs(null);
+            attrs.put("sign_as", defaultSignAs);
+        }
 
         // Define communicate_events baseado no domínio do email
         if (!attrs.containsKey("communicate_events")) {
